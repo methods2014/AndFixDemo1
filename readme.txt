@@ -1,3 +1,23 @@
+andFix demo
+根据andfix热补丁，增加了在线下载补丁并更新的功能。
+1.每次启动在application中判断是否有补丁以及补丁的版本号。
+2.支持多次补丁，每次删除之前的，使用最新的补丁。
+3.服务端需要一个接口和一个下载补丁文件的地址.
+    接口返回：{"code":"0","version":"5.8","fixUrl":"https://raw.githubusercontent.com/methods2014/m1/master/out.apatch"}
+    version为版本号，每次新增补丁都要更新此字段。
+    fixUrl为补丁下载地址。
+    code为服务端返回的错误码。暂未对此字段处理。
+4.github是可以作为测试服务器的，就是有缓存，需要在生成的文件url后面加一个时间戳。
+5.里边使用了android本身带的json解析和Http请求。没有导入其他jar包。
+6.andfix原始链接和git地址
+  http://blog.csdn.net/qxs965266509/article/details/49802429
+  原理解析
+  http://blog.csdn.net/qxs965266509/article/details/49816007
+  git地址
+  https://github.com/alibaba/AndFix
+
+
+
 cmd build
 F:\hotfix\apkpatch-1.0.3>apkpatch.bat -f new-release.apk -t old-release.apk -o output1 -k methodTest.jks -p methodTest -a methodTest -e methodTest
 apkpatch.bat -f new.apk -t old.apk -o fix -k methodTest.jks -p methodTest -a methodTest -e methodTest
